@@ -1,0 +1,7 @@
+.form, .js-todo {
+    display: none;
+}
+
+.showing {
+    display: block;
+}
