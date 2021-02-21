@@ -17,7 +17,7 @@ function askForCoords(){
 }
 
 function getWeather(latitude, longitude){
-    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=187e4a7076642aef5c97440be66c0573&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=187e4a7076642aef5c97440be66c0573&units=metric`)
     .then((res) => {
         return res.json();
     })
