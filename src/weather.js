@@ -9,7 +9,7 @@ function handleGeoSuccess(position){
 }
 
 function handleGeoError(){
-    console.log("Can't handle geolocation.");
+    weather.innerHTML = `Weather is unavailable.`;
 }
 
 function askForCoords(){
@@ -17,13 +17,14 @@ function askForCoords(){
 }
 
 function getWeather(latitude, longitude){
-    fetch(`http://www.7timer.info/bin/civil.php?lon=${longitude.toFixed(2)}&lat=${latitude.toFixed(2)}&ac=0&unit=metric&output=json&tzshift=0`)
+    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=187e4a7076642aef5c97440be66c0573&units=metric`)
     .then((res) => {
         return res.json();
     })
     .then((json) => {
-        const temperature = json.dataseries[0].temp2m;
-        weather.innerHTML = `${temperature}°C`;
+        const temperature = json.main.temp;
+        const place = json.name;
+        weather.innerHTML = `🌡️${Math.round(temperature)}°C 📍${place}`;
     });
 
 }
