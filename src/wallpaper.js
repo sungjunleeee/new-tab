@@ -8,7 +8,7 @@ function handleImageLoad(){
 
 function showImage(imgNum){
     const image = new Image();
-    image.src = `/src/images/${imgNum + 1}.webp`;
+    image.src = `/src/${imgNum + 1}.webp`;
     image.classList.add("bgImage");
     body.appendChild(image);
     image.addEventListener("loadend", handleImageLoad);
